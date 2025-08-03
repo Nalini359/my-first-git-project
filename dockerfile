@@ -1,11 +1,8 @@
-# Use official Python image as base
-FROM python:3.9-slim
+# Dockerfile
+FROM python:3.11-slim
 
-# Set working directory inside the container
 WORKDIR /app
 
-# Copy current directory contents into the container
-COPY . .
+COPY app.py .
 
-# Run the app when container starts
 CMD ["python", "app.py"]
