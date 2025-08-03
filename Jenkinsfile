@@ -8,6 +8,12 @@ pipeline {
             }
         }
 
+        stage('Docker Version Test') {
+            steps {
+                sh 'docker version'
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t my-python-app .'
