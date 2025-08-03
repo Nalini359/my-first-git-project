@@ -8,9 +8,15 @@ pipeline {
             }
         }
 
-        stage('Run Script') {
+        stage('Build Docker Image') {
             steps {
-                sh 'python3 app.py'
+                sh 'docker build -t my-python-app .'
+            }
+        }
+
+        stage('Run Docker Container') {
+            steps {
+                sh 'docker run --rm my-python-app'
             }
         }
     }
